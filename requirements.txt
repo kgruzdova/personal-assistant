@@ -1,0 +1,33 @@
+# Core dependencies
+pyTelegramBotAPI>=4.14.0
+python-dotenv>=1.0.0
+
+# OpenAI
+openai>=1.35.0
+
+# RAG and embeddings
+langchain>=0.2.0
+langchain-openai>=0.1.0
+langchain-community>=0.2.0
+chromadb>=0.4.0
+pypdf>=3.17.0
+
+
+# Audio processing
+pydub>=0.25.1
+
+# Utilities
+aiofiles>=23.2.1
+aiohttp>=3.9.0
+filelock>=3.13.0
+python-multipart>=0.0.9
+
+# Testing
+pytest>=8.2.0
+pytest-asyncio>=0.23.0
+pytest-mock>=3.14.0
+
+# Explicit dependencies for compatibility
+numpy>=1.24.0; python_version < '3.13'
+numpy>=1.26.0; python_version >= '3.13'
+

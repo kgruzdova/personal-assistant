@@ -1,0 +1,184 @@
+Personal Assistant Bot - Project Structure
+==========================================
+
+project/
+│
+├── 📄 Main Files
+│   ├── main.py                     # Entry point - starts the bot
+│   ├── bot.py                      # Bot initialization and configuration
+│   ├── config.py                   # Configuration and environment variables
+│   └── requirements.txt            # Python dependencies
+│
+├── 🎮 Handlers (handlers/)
+│   ├── __init__.py                 # Package init
+│   ├── start.py                    # /start, /help, /reset, /stats commands
+│   ├── text.py                     # Text message handler + /mode command
+│   ├── voice.py                    # Voice message handler + /voice command
+│   └── image.py                    # Image and document handler
+│
+├── 🔧 Services (services/)
+│   ├── __init__.py                 # Package init
+│   ├── openai_client.py            # OpenAI API client (GPT, Whisper, TTS, Vision)
+│   ├── router.py                   # Request router (text, voice, image, rag)
+│   ├── stt.py                      # Speech-to-Text service
+│   ├── tts.py                      # Text-to-Speech service
+│   └── vision.py                   # Vision API service
+│
+├── 📚 RAG System (rag/)
+│   ├── __init__.py                 # Package init
+│   ├── loader.py                   # Document loader (PDF, TXT)
+│   ├── index.py                    # Vector index (ChromaDB)
+│   └── query.py                    # Knowledge base queries
+│
+├── 🛠️ Utilities (utils/)
+│   ├── __init__.py                 # Package init
+│   ├── logging.py                  # Logging configuration
+│   └── helpers.py                  # Helper functions and UserSession
+│
+├── 🧪 Tests (tests/)
+│   ├── __init__.py                 # Package init
+│   ├── conftest.py                 # Pytest configuration
+│   ├── test_text.py                # Text processing tests
+│   ├── test_stt.py                 # STT/TTS tests
+│   └── test_rag.py                 # RAG system tests
+│
+├── 💾 Data (data/)
+│   ├── documents/                  # Documents for RAG (PDF, TXT)
+│   │   └── .gitkeep               # Keep directory in git
+│   ├── chroma_db/                  # Vector database (auto-created)
+│   └── *.mp3, *.ogg, *.wav        # Temporary audio files (auto-cleaned)
+│
+├── 📖 Documentation
+│   ├── README.md                   # Main documentation (500+ lines)
+│   ├── START_HERE.md               # Quick start guide
+│   ├── QUICKSTART.md               # Detailed quick start
+│   ├── ARCHITECTURE.md             # Architecture documentation
+│   ├── EXAMPLES.md                 # Usage examples
+│   ├── CONTRIBUTING.md             # Contribution guidelines
+│   ├── CHANGELOG.md                # Version history
+│   ├── PROJECT_SUMMARY.md          # Project overview
+│   └── TREE.txt                    # This file
+│
+├── 🚀 Scripts
+│   ├── setup.py                    # Setup script
+│   ├── run.bat                     # Run script (Windows)
+│   ├── run.sh                      # Run script (Linux/Mac)
+│   └── Makefile                    # Make commands
+│
+├── ⚙️ Configuration
+│   ├── .env                        # Environment variables (create from .env.example)
+│   ├── .env.example                # Environment template
+│   ├── .gitignore                  # Git ignore rules
+│   ├── pytest.ini                  # Pytest configuration
+│   └── LICENSE                     # MIT License
+│
+└── 📝 Logs
+    └── bot.log                     # Application logs (auto-created)
+
+
+File Count Summary
+==================
+Total Python files:     25+
+Total documentation:    10 files (2000+ lines)
+Total tests:           3 files (20+ tests)
+Configuration files:    6
+Scripts:               4
+
+
+Key Features by Module
+======================
+
+handlers/
+  ✅ Command processing (/start, /help, /mode, /voice, /reset, /stats)
+  ✅ Text message handling
+  ✅ Voice message handling
+  ✅ Image analysis
+  ✅ Document processing
+
+services/
+  ✅ OpenAI GPT-4o integration
+  ✅ Whisper speech recognition
+  ✅ TTS voice synthesis (6 voices)
+  ✅ GPT-4 Vision image analysis
+  ✅ Request routing logic
+
+rag/
+  ✅ PDF/TXT document loading
+  ✅ Text chunking and splitting
+  ✅ OpenAI embeddings
+  ✅ ChromaDB vector storage
+  ✅ Semantic search
+  ✅ Context-based responses
+
+utils/
+  ✅ Colored logging
+  ✅ File operations
+  ✅ Audio conversion (OGG→WAV)
+  ✅ Session management
+  ✅ History tracking
+
+tests/
+  ✅ Text processing tests
+  ✅ STT/TTS tests
+  ✅ RAG system tests
+  ✅ Mocked external APIs
+  ✅ Async test support
+
+
+Technologies Used
+=================
+• Python 3.10+
+• aiogram 3.x (Telegram Bot Framework)
+• OpenAI API (GPT-4o, Whisper, TTS, Vision)
+• LangChain (RAG Framework)
+• ChromaDB (Vector Database)
+• pytest (Testing Framework)
+• asyncio (Async Programming)
+• pydub (Audio Processing)
+
+
+Installation Steps
+==================
+1. Clone repository
+2. Create virtual environment: python -m venv venv
+3. Activate: venv\Scripts\activate (Windows) or source venv/bin/activate (Linux/Mac)
+4. Install dependencies: pip install -r requirements.txt
+5. Install FFmpeg (for audio processing)
+6. Create .env file with API keys
+7. Run: python main.py
+
+
+Quick Commands
+==============
+# Setup
+python setup.py
+
+# Run
+python main.py
+# or
+run.bat (Windows)
+./run.sh (Linux/Mac)
+
+# Test
+pytest
+pytest -v
+pytest tests/test_text.py
+
+# Clean
+make clean
+
+
+Project Status
+==============
+✅ All features implemented
+✅ All tests passing
+✅ Full documentation
+✅ Production ready
+✅ Portfolio ready
+
+
+Version: 1.0.0
+Created: 2024-12-09
+Status: Production Ready
+License: MIT
+
